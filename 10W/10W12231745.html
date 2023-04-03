@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 10W12231745 이영배</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework 10W12231745 이영배</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 이영배은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 이영배, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: 
+6: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<input type="button" onclick="javascript:display_Q5();" value="Q-6" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "10W12231745.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 물에 떠 있는 나무토막의 2/3이 물에 잠겨 있다.  나무의 밀도는 몇 10³  kg/m³ 인가?  물의 밀도= 1 g/cm³ =1000 kg/m³<br>① 0.667<br>② 0.657<br>③ 0.697<br>④ 0.687<br>⑤ 0.627<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 관을 통해 6.0 m³의 물이 흘러 나가는데, 흘러나간 물에 한 일의 크기가 2 J이라고 하자. 관 양쪽  끝의 압력차는 몇 Pa 인가?<br>① 0.333<br>② 333<br>③ 33.3<br>④ 0.00333<br>⑤ 0.0333<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 길이가 5.0 m이고 단면적이 0.2 m² 인 금속막대의 영률은  5.0 ×10⁸ N/m²이다.  장력이 작용하여 이 막대기가 0.1 ×10⁻² m 늘어났다고 할 때 이금속에 작용한 장력의 크기는 몇 N 인가?<br>① 0.02<br>② 200<br>③ 2000<br>④ 20000.0<br>⑤ 200000<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 길이가 90.0 cm이고 평균 단면적이 6.0 cm²인 다리뼈가 압축될 때의 영률이  1.0 ×10¹⁰ N/m²이고 다리뼈가 부러지지 않고 견딜 수 있는 최대힘은 1.0 ×10⁸ N 라고 하자. 다리뼈가 부러질 때까지는 탄성을 유지한다고 가정한다. 높은 곳에서 뛰어 내릴 때 압축에 의해 다리뼈가 부러진다면 그때 다리뼈에 저장된 탄성에너지는 몇 10⁸  J인가?<br>① 75<br>② 0.0075<br>③ 7.5<br>④ 750<br>⑤ 0.075<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 부산에서 서울을 잇는 경부고속도로에서 자동차들의 밀도는 어느 곳에서나 일정하며 교통 정체는 없다고 하자. 6 차선 구간에서 자동차들이 80 km/h로 달린다면 2 차선 구간에서는 자동차의 속도는 몇 km/h이어야 하는가?<br>① 2.4<br>② 0.024<br>③ 240.0<br>④ 24000<br>⑤ 0.24<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q5() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>6.</strong></font><br> 스쿠버다이버가 2 m 깊이로 잠수했다. 다이버의 물안경의 지름이 30 cm이면 이 물안경에 작용하는 힘은 몇 N인가? 물안경의 안쪽은 수면 위의 공기로 차 있어 1 atm으로 유지된다. 중력가속도 g = 9.8 m/s², 물의 밀도= 1 g/cm³ =1000 kg/m³<br>① 4380.0<br>② 7380.0<br>③ 5380.0<br>④ 8380.0<br>⑤ 1380.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 5;
+display_Q0();</script>
+</body>
+</html>
