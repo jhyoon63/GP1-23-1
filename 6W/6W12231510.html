@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 6W12231510 김현</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework 6W12231510 김현</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 김현은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 김현, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: 
+6: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<input type="button" onclick="javascript:display_Q5();" value="Q-6" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "6W12231510.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+
+<script type="application/javascript">
+function line_arrow(context, fromx, fromy, tox, toy, color, end) {
+    var headlen = 7;
+    var dx = tox - fromx;
+    var dy = toy - fromy;
+    var angle = Math.atan2(dy, dx);
+    context.beginPath();
+    context.strokeStyle = color;
+    if (end == "last"){
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+}
+    else if (end=="both"){
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle + Math.PI / 6), fromy + headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle - Math.PI / 6), fromy + headlen * Math.sin(angle - Math.PI / 6));
+}
+    else if (end == "first"){
+    context.moveTo(tox, toy);
+    context.lineTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle + Math.PI / 6), fromy + headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle - Math.PI / 6), fromy + headlen * Math.sin(angle - Math.PI / 6));
+    }
+    context.stroke();
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 질량이 2.0 g의 총알이 200 m/s의 속력으로 날아가다 마찰이 없는 표면에 정지해 있는 0.5 kg의 나무토막에 맞았다. 같은 방향으로 나무토막을 통과한 총알의 속력은 100.0 m/s이다. 토막의 최종속력은 몇 m/s인가?<br>① 0.9<br>② 0.6<br>③ 0.4<br>④ 0.3<br>⑤ 0.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 질량 5 kg인 물체 A가 속력 30 m/s로 정지해 있던 질량 15 kg의 물체 B와 충돌한 후, 두 물체가 직선운동을 하였을 때, 완전 탄성충돌을 한 경우, 충돌 후 물체 A의 속력(m/s)을 구하여라.<br>① -150<br>② -0.15<br>③ -1.5<br>④ -15.0<br>⑤ -15000<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 높이 100 m로 비행기가 속력 30 m/s로  수평 비행하면서，질량 m인 소포를 지표면으로 떨어뜨렸다. 낙하하는 중간에 소포가 풀려서 두 개로 갈라졌다. 그 중 질량 0.1m인 소포조각을 낙하 시작 시점으로부터 50 m인 지점에서 찾았다면, 나머지 조각은 낙하지점으로부터 몇 m 떨어진 지점에서 찾을 수 있겠는가? (g = 9.8 m/s² )<br>① 14500<br>② 145.0<br>③ 0.0145<br>④ 14.5<br>⑤ 1.45<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 두 물체 X, Y가 질량이 없는 용수철에 매여 마찰이 없는 수평인 표면에 정지해 있다. X의 질량은 Y의 질량의 8배이다. 두 물체를 압축시켰다가 놓을 때, X의 운동에너지는 Y의 운동에너지의 몇 배가 되는가?<br>① 0.525<br>② 0.325<br>③ 0.725<br>④ 0.125<br>⑤ 0.025<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 질량 m인 물체가 정지하고 있는 같은 질량의 물체와 탄성충돌한 후, 초기 진행방향과 50ᵒ 의 각으로 비켜나갔다. 나머지 물체는 몇 도로 진행하게 되겠는가?<br>① 0.0<br>② 70.0<br>③ 30.0<br>④ 40.0<br>⑤ 60.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q5() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>6.</strong></font><br> 그림과 같이 질량 6 g인 총알이 용수철에 달려 있는 질량 3.0 kg인 나무토막에 속도 300 m/s로 날아와 관통한 후 150.0 m/s가 되었다. 용수철 상수는 60 N/m이고 용수철 끝은 벽에 고정되어 있으며, 나무토막과 바닥면 사이의 마찰은 무시한다. 이때, 용수철의 최대 압축 거리는 몇 cm인가? <br><br>① 6.71<br>② 0.00671<br>③ 671<br>④ 67100<br>⑤ 0.671<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+ctx.beginPath();
+var gra = ctx.createLinearGradient(30,150,30,180);
+gra.addColorStop(0,"#bbb");
+gra.addColorStop(1,"white");
+ctx.fillStyle=gra;
+ctx.fillRect(30,150,400,30);
+ctx.fill();
+
+ctx.beginPath();
+ctx.fillStyle="#ff91c8";
+ctx.arc(400, 100, 20, 0, 2*Math.PI);
+ctx.fill();
+
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.fillRect(30, 20, 20,130);
+ctx.fill();
+
+line_arrow(ctx, 430, 65, 370, 65, "black", "last");
+
+ctx.beginPath();
+ctx.fillStyle="#ff8080";
+ctx.fillRect(220,50,100,100);
+ctx.fill();
+
+ctx.beginPath();
+ctx.strokeStyle="black";
+ctx.moveTo(50, 100);
+ctx.lineTo(60, 100);
+
+ctx.ellipse(80, 100, 20, 40, 0, 3.14, 7.1, false);
+ctx.ellipse(107, 100, 20, 40, 0, 2.3, 7.1, false);
+ctx.ellipse(134, 100, 20, 40, 0, 2.3, 7.1, false);
+ctx.ellipse(161, 100, 20, 40, 0, 2.3, 7.1, false);
+ctx.ellipse(188, 100, 20, 40, 0, 2.3, 6.28, false);
+ctx.lineTo(220, 100);
+
+ctx.stroke();
+
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("m", 395, 105);
+ctx.fillText("v", 395, 60);
+ctx.fillText("M", 265, 105);
+ctx.fillText("k", 125, 55);
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 5;
+display_Q0();</script>
+</body>
+</html>
