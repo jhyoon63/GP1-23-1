@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 8W12180992 이의찬</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework 8W12180992 이의찬</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 이의찬은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 이의찬, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "8W12180992.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+
+<script type="application/javascript">
+function line_arrow(context, fromx, fromy, tox, toy, color, end) {
+    var headlen = 7;
+    var dx = tox - fromx;
+    var dy = toy - fromy;
+    var angle = Math.atan2(dy, dx);
+    context.beginPath();
+    context.strokeStyle = color;
+    if (end == "last"){
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+}
+    else if (end=="both"){
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle + Math.PI / 6), fromy + headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle - Math.PI / 6), fromy + headlen * Math.sin(angle - Math.PI / 6));
+}
+    else if (end == "first"){
+    context.moveTo(tox, toy);
+    context.lineTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle + Math.PI / 6), fromy + headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle - Math.PI / 6), fromy + headlen * Math.sin(angle - Math.PI / 6));
+    }
+    context.stroke();
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 발사체를 지구 탈출 속력의 0.5 배의 속력으로 지표면에서 연직 위로 발사한다. 지구의 반지름이 R이라면 발사체가 도달하는 최고 높이는 몇 m인가?(이 때 지구의 자전과 공기의 저항은 무시한다.) 이 때 중력상수 G=6.67×10⁻¹¹ m³/s²⋅kg이고,  지구의 반지름 R = 6.4 x 10³ km, 질량 M = 6.0 x10²⁴ kg이다.<br>① 2.13<br>② 213<br>③ 0.00213<br>④ 2130000.0<br>⑤ 2130000000<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 그림의 6개 입자는 모두 같은 질량 0.2 kg이고, 동일한 등속력 12 m/s로 움직인다. 입자 1, 2, 3은 점 O에 대하여 반지름이 각각 3.0 m, 6.0 m 및 9.0인 원을 따라 운동한다. 입자 4와 5는 점 O에 대하여 수직으로 6.0 m와 3.0 m 떨어진 두 직선을 따라 운동하고 있다. 입자 6은 점 O로부터 시작하여 같은 방향으로 운동한다. 입자 5의 각운동량의 크기는 국제단위계로 얼마인가? <br><br>① 3.2<br>② 2.2<br>③ 8.2<br>④ 6.2<br>⑤ 7.2<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc(100, 100, 3, 0, 2*Math.PI);
+ctx.fill();
+
+ctx.beginPath();
+ctx.setLineDash([5,2]);
+ctx.strokeStyle="black";
+ctx.arc(100, 100, 30, 0, 2*Math.PI);
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(100, 100, 60, 0, 2*Math.PI);
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(100, 100, 90, 0, 2*Math.PI);
+ctx.stroke();
+
+
+ctx.setLineDash([]);
+line_arrow(ctx, 100, 130, 140, 130, "black", "last");
+line_arrow(ctx, 100, 160, 60, 160, "black", "last");
+line_arrow(ctx, 100, 10, 60, 10, "black", "last");
+
+
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("O", 85, 115);
+ctx.fillText("O", 285, 115);
+
+ctx.font="normal 18px Palatino Linotype";
+ctx.fillText("1", 95, 145);
+ctx.fillText("2", 95, 175);
+ctx.fillText("3", 95, 25);
+
+ctx.fillText("4", 295, 35);
+ctx.fillText("5", 315, 65);
+ctx.fillText("6", 345, 95);
+
+
+ctx.beginPath();
+ctx.strokeStyle="black";
+ctx.setLineDash([2,1]);
+ctx.moveTo(300, 100);
+ctx.lineTo(400,100);
+
+ctx.moveTo(220, 70);
+ctx.lineTo(400, 70);
+
+ctx.moveTo(220, 40);
+ctx.lineTo(400, 40);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc(300, 100, 3, 0, 2*Math.PI);
+ctx.fill();
+
+ctx.setLineDash([]);
+line_arrow(ctx, 350, 100, 390, 100, "black", "last");
+line_arrow(ctx, 310, 70, 350, 70, "black", "last");
+line_arrow(ctx, 260, 40, 300, 40, "black", "first");
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 초기에 질량이 m인 물체 A와 질량이 5m인 물체 B가 마주 보고 우주 공간에 정지해 있다. 두 물체의 질량 중심점 사이의 거리는 R이다. 두 물체가 중력을 받아 가속될 때 A의 가속도는 B의 가속도의 몇 배인가?<br>① 5.0<br>② 5.3<br>③ 5.4<br>④ 5.8<br>⑤ 5.6<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 어떤 행성이 태양을 초점으로 타원 궤도를 돌고 있다. 태양으로부터 가장 멀리 있을 때의 거리(원일점 거리)가 가장 가까이 있을 때의 거리(근일점 거리)의 3배라고 한다. 이 행성의 최대 선속력은 최소 선속력의 몇 배인가?<br>① 3.0<br>② 3.1<br>③ 3.6<br>④ 3.2<br>⑤ 3.5<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 길이 0.8 m인 질량을 무시할 만큼 가벼운 강체 막대에 질량이 3.0 kg, 1.5 kg인 두 금속 공이 막대 양 끝에 연결되어 있다. 마찰이 없는 평면 위에서 강체 막대는 가운데 중심을 축으로 회전운동하고 있다. 이 때 금속공의 순간 속력이 6.0 m/s라면 총 각운동량을 국제단위계로 구하여라.<br>① 0.00108<br>② 0.0108<br>③ 10800<br>④ 1.08<br>⑤ 10.8<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 4;
+display_Q0();</script>
+</body>
+</html>
