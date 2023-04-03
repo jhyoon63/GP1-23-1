@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 7W12231109 김민솔</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework 7W12231109 김민솔</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 김민솔은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 김민솔, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: 
+6: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<input type="button" onclick="javascript:display_Q5();" value="Q-6" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "7W12231109.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 원판이 매우 큰 팽이의 회전 각속도가 일정하게 감소하고 있다. 초기의 각속도는 70 rpm이었지만, 1.8 분이 지난 후에 회전을 멈췄다. 팽이의 각가속도는 몇 rad/s²인가?<br>① -0.000679<br>② -0.679<br>③ -0.00679<br>④ -0.0679<br>⑤ -67.9<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 세탁기는 세탁조가 회전운동을 하여 탈수 및 세탁을 한다. 한 세탁기의 세탁조가 정지상태에서 출발하여 10.0 s 후에 7.0 rev/s의 각속력에 도달하고 이때 세탁하는 사람이 뚜껑을 열면 안전 스위치가 작동하여 15.0 s 만에 세탁조를 정지시킨다. 뚜껑을 연 후부터 세탁조가 정지하기 까지 몇 번 회전하는가?<br>① 72.5<br>② 62.5<br>③ 52.5<br>④ 12.5<br>⑤ 32.5<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 동일한 두 개의 바퀴 A, B가 있다. 바퀴 B는 A보다 2.5배 큰 각속도로 회전한다. 바퀴 B의 테두리 위 한 점에서의 구심가속도는 바퀴 A의 테두리 위 한 점에서의 구심가속도의 몇 배인가?<br>① 6.25<br>② 2.25<br>③ 4.25<br>④ 3.25<br>⑤ 1.25<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 평평한 포장도로에서 자동차가 반지름 60 m의 원 위를 회전하고 있다. 습기가 없는 날 포장도로의 정지마찰계수 μs = 1.1이라면, 이 자동차가 원운동을 유지하면서 달릴 수 있는 최대 속력(m/s)은 얼마인가? (g = 9.8 m/s² )<br>① 24.4<br>② 21.4<br>③ 26.4<br>④ 25.4<br>⑤ 29.4<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 컴퓨터의 DVD는 하드디스크 안에는 ‘플래터’라고 불리는 자성체를 입힌 원판이 들어 있다. 지름이 3.5인치인 플래터가 6000  rpm(분당 회전수)의 각속력으로 회전하는 경우 플래터 가장자리 한 점의 순간속력은 몇 m/s인가?<br>① 27.9<br>② 0.0279<br>③ 2790<br>④ 0.00279<br>⑤ 0.279<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q5() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>6.</strong></font><br> 경주용 차가 지름이 12 km의 원형트랙을 일정한 속력으로 다섯 바퀴 도는 데 11.0 분이 걸렸다. 접선속력은 몇 m/s인가?<br>① 28.6<br>② 2860<br>③ 286.0<br>④ 0.0286<br>⑤ 0.00286<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 5;
+display_Q0();</script>
+</body>
+</html>
