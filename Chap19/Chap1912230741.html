@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework Chap1912230741 조용대</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework Chap1912230741 조용대</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 조용대은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 조용대, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: 
+6: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<input type="button" onclick="javascript:display_Q5();" value="Q-6" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "Chap1912230741.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+
+<script type="application/javascript">
+function line_arrow(context, fromx, fromy, tox, toy, color, end) {
+    var headlen = 7;
+    var dx = tox - fromx;
+    var dy = toy - fromy;
+    var angle = Math.atan2(dy, dx);
+    context.beginPath();
+    context.strokeStyle = color;
+    if (end == "last"){
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+}
+    else if (end=="both"){
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle + Math.PI / 6), fromy + headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle - Math.PI / 6), fromy + headlen * Math.sin(angle - Math.PI / 6));
+}
+    else if (end == "first"){
+    context.moveTo(tox, toy);
+    context.lineTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle + Math.PI / 6), fromy + headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle - Math.PI / 6), fromy + headlen * Math.sin(angle - Math.PI / 6));
+    }
+    context.stroke();
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 균일한 자기장 <img src="http://latex.codecogs.com/png.latex?\\dpi{130}  \\vec{B}=(0.4\\hat{i}-0.9\\hat{j}) "/> T와 균일한 전기장 <img src="http://latex.codecogs.com/png.latex?\\dpi{130} \\vec{E}=-1.0\\hat{k}"/> N/C 속에서 움직이고 있는 전자의 속도는  <img src="http://latex.codecogs.com/png.latex?\\dpi{130}  \\vec{v}=(2.5 \\hat{i}+5.0\\hat{j}) "/> m/s이다. 전자가 받는 로렌츠 힘 [10⁻¹⁹ N]의 z-축 성분을 구하여라. 전자 전하=1.60×10⁻¹⁹ C.<br>① 0.0084<br>② 8.4<br>③ 84<br>④ 840<br>⑤ 0.084<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 균일한 전기장 E 가 +x 축 방향으로 작용하고 있는 공간으로 +y 축 방향으로 진입하는 양성자가 등속으로 움직이기 위한 자기장의 방향을 구하라.<br>① +x 축 <br>② -x 축 <br>③ +y 축 <br>④ -y 축 <br>⑤ +z 축 <br>⑥ -z 축 <br>⑦ None of the above <br>⑧ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 균일한 자기장 벡터 <img src="http://latex.codecogs.com/png.latex?\\dpi{130}  \\vec{B}=-0.2\\hat{i}+1.2\\hat{j}"/> T인 공간에 매우 긴 직선 도선에 10.0 A의 일정한 전류가 +x 방향으로 흐르고 있다. 도선의 단위 길이당 작용하는 힘의 z-성분 [N/m]을 구하여라.<br>① 12000<br>② 0.12<br>③ 0.0012<br>④ 1.2<br>⑤ 12.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 아래 그림과 같이 얇은 면 도선에 전류가 왼쪽으로 흐르고 있다. 자기장은 지면에서 나오는 방향이다. 점 T의 전위가 점 S의 전위보다 높다. 전하운반자의 부호를 구하라. <br>① 양 <br>② 음 <br>③ None of the above <br>④ All of the above <br>';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+ctx.beginPath();
+ctx.fillStyle="#ddd";
+ctx.rect(20, 80, 200, 40);
+ctx.fill();
+ctx.beginPath();
+ctx.ellipse(120,80,2, 2, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="black";
+ctx.fillStyle="black";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.font="normal 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("S", 115, 69);
+line_arrow(ctx, 150, 100, 100, 100, "blue", "last");
+ctx.beginPath();
+ctx.ellipse(120,120,2, 2, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="black";
+ctx.fillStyle="black";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.font="normal 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("T", 115, 137);
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="blue";
+ctx.fillText("i", 155, 103);
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("B", 43, 108);
+ctx.beginPath();
+ctx.font="normal 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("⊙", 30, 98);
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 진공 튜브 안에서 전자가 정지 상태로부터 미지의 전위차로 가속된 다음 진행방향에 수직한 균일한 자기장 400 mT에 의해 원호의 반지름=0.1 m의 등속원운동한다. 미지의 전위차는 몇 kV인가? 전자전하량=1.60×10⁻¹⁹ C, 질량=9.11×10⁻³¹ kg.<br>① 141000.0<br>② 171000.0<br>③ 131000.0<br>④ 161000.0<br>⑤ 191000.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q5() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>6.</strong></font><br> 길이가 0.3 m인 구리막대가 저울 위에 놓여 있고 이 막대에는 길이방향으로 전류가 흐르고 있다. 막대에는 이막대와 수직방향으로 균일한 수평방향의 자기장이 걸려 있다. 이 막대에 작용하는 자기력을 저울로 측정한 값은 0.39 N이다. 이 막대에 흐르는 전류가 1.5 A이라면 자기장의 크기는 몇 T인가?<br>① 0.867<br>② 0.967<br>③ 0.767<br>④ 0.467<br>⑤ 0.167<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 5;
+display_Q0();</script>
+</body>
+</html>
