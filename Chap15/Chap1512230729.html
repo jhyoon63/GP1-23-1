@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework Chap1512230729 윤세영</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework Chap1512230729 윤세영</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 윤세영은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 윤세영, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<input type="button" onclick="javascript:display_Q5();" value="Q-6" /> &emsp;
+<input type="button" onclick="javascript:display_Q6();" value="Q-7" /> &emsp;
+<input type="button" onclick="javascript:display_Q7();" value="Q-8" /> &emsp;
+<input type="button" onclick="javascript:display_Q8();" value="Q-9" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "Chap1512230729.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+
+<script type="application/javascript">
+function line_arrow(context, fromx, fromy, tox, toy, color, end) {
+    var headlen = 7;
+    var dx = tox - fromx;
+    var dy = toy - fromy;
+    var angle = Math.atan2(dy, dx);
+    context.beginPath();
+    context.strokeStyle = color;
+    if (end == "last"){
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+}
+    else if (end=="both"){
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle + Math.PI / 6), fromy + headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle - Math.PI / 6), fromy + headlen * Math.sin(angle - Math.PI / 6));
+}
+    else if (end == "first"){
+    context.moveTo(tox, toy);
+    context.lineTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle + Math.PI / 6), fromy + headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(fromx, fromy);
+    context.lineTo(fromx + headlen * Math.cos(angle - Math.PI / 6), fromy + headlen * Math.sin(angle - Math.PI / 6));
+    }
+    context.stroke();
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 전하량이 60.0 μC인 점전하가 원점에서부터 (2 î + 6.0 ĵ) m 위치에 놓여 있다. 원점에서부터 (20.0 î + 6 ĵ) m 만큼 떨어진 곳에 이 점전하가 만드는 전기장의 크기를 구하여라. 1/(4πε₀ )=9×10⁹ N⋅m²/C².<br>① 16700<br>② 167000<br>③ 1670.0<br>④ 16.7<br>⑤ 0.0167<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 아래 그림과 같이 전하량 q가 균일하게 대전된 반지름 a인 고리의 중심에서 <img src="http://latex.codecogs.com/png.latex?\\dpi{130}  2\\sqrt{ 2 }a "/>  만큼 떨어진 곳에 점전하 q&#39;이 놓여 있다. 고리 중심에서 <img src="http://latex.codecogs.com/png.latex?\\dpi{130}  \\sqrt{ 2 }a "/> 만큼 떨어진 P점에서 전기장의 세기가 0이 되기위한 q&#39;을 αq으로 표현하면 α를 구하여라. <br><br>① 5440<br>② 54.4<br>③ 5.44<br>④ 0.00544<br>⑤ 0.544<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+line_arrow(ctx, 100, 100, 300, 100, "black", "last");
+ctx.beginPath();
+ctx.ellipse(100,100,30, 70, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="red";
+ctx.lineWidth=2.0;
+ctx.stroke();
+ctx.lineWidth=1;
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="red";
+ctx.fillText("q", 95, 17);
+ctx.beginPath();
+ctx.strokeStyle="black";
+ctx.moveTo(100,100);
+ctx.lineTo(76,141);
+ctx.stroke();
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("a", 89, 134);
+ctx.beginPath();
+ctx.ellipse(190,100,2, 2, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="black";
+ctx.fillStyle="black";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.font="normal 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("P", 185, 87);
+ctx.beginPath();
+ctx.ellipse(280,100,4, 4, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="blue";
+ctx.fillStyle="blue";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="blue";
+ctx.fillText("q'", 275, 87);
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 아래 그림과 같이 연직선과 θ=50°의 각을 이루고 밑에서 맞닿아 있는 두 경사면에 질량 m=9 kg이며 전하 q로 대전된 동일한 두 물체가 수평거리 x=5.5 cm로 평형을 이루고 있다. 물체의 전하량 q [μC]를 구하시오. g=10 m/s². 1/(4πε₀ )=9×10⁹ N⋅m²/C². <br><br>① 5.04<br>② 5040<br>③ 50.4<br>④ 0.0504<br>⑤ 0.00504<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+ctx.beginPath();
+ctx.moveTo(30,30);
+ctx.lineTo(40,30);
+ctx.lineTo(90,190);
+ctx.lineTo(80,190);
+ctx.lineTo(30,30);
+ctx.fillStyle="goldenrod";
+ctx.fill();
+ctx.beginPath();
+ctx.moveTo(150,30);
+ctx.lineTo(140,30);
+ctx.lineTo(90,190);
+ctx.lineTo(100,190);
+ctx.lineTo(150,30);
+ctx.fillStyle="goldenrod";
+ctx.fill();
+ctx.beginPath();
+ctx.strokeStyle="black";
+ctx.setLineDash([5,2]);
+ctx.moveTo(90,100);
+ctx.lineTo(90,190);
+ctx.stroke();
+ctx.setLineDash([]);
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("θ", 76, 138);
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("θ", 94, 138);
+ctx.beginPath();
+ctx.ellipse(129,50,5, 5, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="red";
+ctx.fillStyle="red";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.ellipse(51,50,5, 5, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="red";
+ctx.fillStyle="red";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("x", 87, 32);
+line_arrow(ctx, 51, 40, 129, 40, "black", "both");
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("q", 56, 66);
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("q", 116, 66);
+line_arrow(ctx, 140, 80, 140, 120, "black", "last");
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("g", 135, 132);
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 두 점전하의 전하량의 합이 +1.2e-05 μC이고 이 둘은 서로 5 m 떨어져 있다. 두 점전하 사이에는 0.003 mN의 척력이 작용한다면, 두 점전하 중 전하량의 크기가 작은 것은 몇 μC인가? 1/(4πε₀ )= 9×10⁹ N⋅m²/C².<br>① 1680<br>② 168<br>③ 1.68<br>④ 0.00168<br>⑤ 0.0168<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 질량이 각각 9×10²⁴ kg, 2×10³⁰ kg인 두 물체가 있다. 만약에 두 물체가 전기적으로 중성이 아니고 크기와 부호가 동일한 전하량을 띠고 있다고 가정한다면, 이 둘 사이의 만유인력을 상쇄시키는 데 필요한 각 전하량의 크기는 몇 10¹⁷ C이어야 하는가? G=6.67×10⁻¹¹ m³/s²⋅kg. 1/(4πε₀ )=9×10⁹ N⋅m²/C².<br>① 0.00365<br>② 365<br>③ 3.65<br>④ 0.365<br>⑤ 36.5<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q5() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>6.</strong></font><br> 일직선상에 세 점전하가 간격 d를 두고 놓여 있다. 전하량은 순서대로 -1q, -1q, 1q이다. (1/4πε₀ )q²/d²을 F라 하면, 왼쪽 전하 -1q에 작용하는 힘의 크기는 F의 몇 배인가?<br>① 0.55<br>② 0.15<br>③ 0.65<br>④ 0.35<br>⑤ 0.75<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q6() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>7.</strong></font><br> 아래 그림과 같이 y-축 상의 두 점전하의 수직이등분 선상에 놓여 있는 점 P에서 전기장의 방향은? <br> <br>① +x<br>② -x<br>③ +y<br>④ -y<br>⑤ None of the above <br>⑥ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+line_arrow(ctx, 11, 100, 191, 100, "black", "last");
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("y", 28, 22);
+line_arrow(ctx, 31, 170, 31, 30, "black", "last");
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("x", 196, 102);
+ctx.beginPath();
+ctx.ellipse(31,50,4, 4, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="blue";
+ctx.fillStyle="blue";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.ellipse(31,150,4, 4, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="red";
+ctx.fillStyle="red";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.ellipse(161,100,2, 2, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="black";
+ctx.fillStyle="black";
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("q", 39, 52);
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("-q", 37, 152);
+ctx.beginPath();
+ctx.font="normal 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("P", 158, 90);
+}
+function display_Q7() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>8.</strong></font><br> 선전하밀도가 λ=1.0 μC/m인 무한히 긴 도선이 y-축을 따라 놓여 있고 원점에서부터 양의 방향으로 25.0 m 떨어진 x-축 위에 전하량이 -4.0 μC인 점전하가 놓여있다. 원점에서부터 6.0 m 떨어져 있는 z-축 위의 점에서 전기장의 z-축 성분 [N/C]을 구하여라. 1/(4πε₀ )= 9×10⁹ N⋅m²/C².<br>① 7990.0<br>② 2990.0<br>③ 8990.0<br>④ 990.0<br>⑤ 9990.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q8() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>9.</strong></font><br> 균일한 전기장 5.0×10⁴ N/C 내에서 전자를 가만히 놓았다. 전자가 3.0 cm를 진행했을 때, 운동에너지는 몇 10⁻¹⁸ J 인가? 전자 질량=9.11×10⁻³¹ kg, 전하량=1.60×10⁻¹⁹ C.<br>① 0.024<br>② 240.0<br>③ 24000<br>④ 0.0024<br>⑤ 0.24<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 8;
+display_Q0();</script>
+</body>
+</html>
