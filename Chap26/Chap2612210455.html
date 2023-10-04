@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework Chap2612210455 노종명</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework Chap2612210455 노종명</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 노종명은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 노종명, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "Chap2612210455.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 수소 원자의 바닥상태 에너지는 -13.6 eV이다. 1번째 들뜬상태에서 바닥상태로 떨어질 때 방출되는 빛의 파장은 몇 nm인가? 단, N번째 들뜬 상태의 양자수는 n=(N+1)임에 주의하라. 단, hc=1.24×10⁻⁶ eV⋅m 이다.<br>① 172.0<br>② 132.0<br>③ 122.0<br>④ 102.0<br>⑤ 152.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 파장이 0.11 nm인 엑스선이 자유전자와 산란하였다. 산란각이 90° 인 경우에 대해서 산란된 빛의 파장은 몇 nm인가? 전자전하량=1.60×10⁻¹⁹ C. 전자질량=9.11×10⁻³¹ kg. 플랑크상수 h=6.626×10⁻³⁴ J⋅s.<br>① 0.912<br>② 0.412<br>③ 0.712<br>④ 0.512<br>⑤ 0.112<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 전자의 속력을 측정한 결과 1.5%의 오차로 속력이 2 Mm/s이었다. 동시에 측정할 수 있는 위치에 대한 오차 범위는 몇 nm인가? 전자질량=9.11×10⁻³¹ kg. 플랑크상수 h=6.626×10⁻³⁴ J⋅s.<br>① 1.83<br>② 1.23<br>③ 1.03<br>④ 1.93<br>⑤ 1.33<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 어떤 금속의 일함수가 0.65 eV이다. 이 금속에 6.0×10¹⁴ Hz의 빛을 쪼였을 때 튀어나오는 전자에 대한 저지전압은 몇 V인가? h=6.626×10⁻³⁴ J⋅s, 전자전하= 1.60×10⁻¹⁹ C, 빛의 속도=3×10⁸ m/s.<br>① 0.183<br>② 0.0183<br>③ 1.83<br>④ 18300<br>⑤ 0.00183<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 속력이 1.4×10⁷ m/s으로 움직이는 전자의 드 브로이 파장은 몇 nm인가? 전자질량=9.11×10⁻³¹ kg. 플랑크상수 h=6.626×10⁻³⁴ J⋅s.<br>① 0.0519<br>② 0.0619<br>③ 0.0319<br>④ 0.0419<br>⑤ 0.0119<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 4;
+display_Q0();</script>
+</body>
+</html>
