@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework Chap2212231204 백서희</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework Chap2212231204 백서희</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 백서희은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 백서희, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "Chap2212231204.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 최대전압이 200 V인 교류전원에 50.0 Ω의 저항을 연결하였을 때, 저항에 흐르는 유효전류를 구하여라.<br>① 2.83<br>② 2.73<br>③ 2.53<br>④ 2.23<br>⑤ 2.93<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 아래 그림과 같이 R = 100의 저항선과 인덕턴스가 L = 0.5 H인 코일이 교류전원에 직렬로 연결되어 있는 RL 회로가 있다. 교류전원의 각주파수가 400 rad/s일 때, 이 회로의 저항에서 소비되는 평균전력이 240 W이라면 교류전원의 유효전압은 몇 V인가? <br><br>① 3.46<br>② 34.6<br>③ 34600<br>④ 346.0<br>⑤ 0.0346<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+ctx.beginPath();
+ctx.strokeStyle="black";
+ctx.moveTo(100,90);
+ctx.lineTo(100,50);
+ctx.lineTo(150,50);
+ctx.stroke();
+ctx.beginPath();
+ctx.ellipse(100,100,10, 10, 0, 0, 2*Math.PI, false);
+ctx.strokeStyle="black";
+ctx.stroke();
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("⏦", 90, 106);
+ctx.beginPath();
+ctx.strokeStyle="red";
+ctx.lineWidth=2.0;
+ctx.moveTo(150,50);
+ctx.lineTo(152,40);
+ctx.lineTo(156,60);
+ctx.lineTo(160,40);
+ctx.lineTo(164,60);
+ctx.lineTo(168,40);
+ctx.lineTo(172,60);
+ctx.lineTo(174,50);
+ctx.stroke();
+ctx.lineWidth=1;
+ctx.beginPath();
+ctx.strokeStyle="black";
+ctx.moveTo(174,50);
+ctx.lineTo(230,50);
+ctx.lineTo(230,70);
+ctx.stroke();
+ctx.beginPath();
+ctx.strokeStyle="red";
+ctx.arc(230, 78.0, 10, 4.6, 8.8);
+ctx.stroke();
+ctx.beginPath();
+ctx.strokeStyle="red";
+ctx.arc(230.0,90.0,10, 3.6, 8.8);
+ctx.stroke();
+ctx.beginPath();
+ctx.strokeStyle="red";
+ctx.arc(230.0,102.0,10, 3.6, 8.8);
+ctx.stroke();
+ctx.beginPath();
+ctx.strokeStyle="red";
+ctx.arc(230.0,114.0,10,3.84,7.85);
+ctx.stroke();
+ctx.beginPath();
+ctx.strokeStyle="black";
+ctx.moveTo(230,123);
+ctx.lineTo(230,153);
+ctx.lineTo(100,153);
+ctx.lineTo(100,110);
+ctx.stroke();
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("L", 209, 99);
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("R", 159, 74);
+ctx.beginPath();
+ctx.font="italic 18px Palatino Linotype";
+ctx.fillStyle="black";
+ctx.fillText("ℰ(t)", 113, 102);
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> RL 회로가 교류전원에 연결되어 있다. 교류전원의 최대전압이 36.0 V이고 인턱터에 걸리는 최대전압이 14.0 V라면 저항 양단에 걸리는 최대전압은 얼마인가?<br>① 31.2<br>② 33.2<br>③ 34.2<br>④ 38.2<br>⑤ 30.2<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> RLC 회로에 연결된 저항의 저항은 510 Ω, 인덕터의 인덕턴스는 25.0 mH, 축전기의 전기용량은240 μF이다. 이 회로에는 또한 기전력이 17.0 V이고 진동수는 60.0 Hz인 교류전원이 연결되어 있다. 유도 리액턴스는 몇 Ω인가?<br>① 0.0188<br>② 188<br>③ 1880<br>④ 18.8<br>⑤ 1.88<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 전기용량이 35.0 μF 축전기를 각진동수 300 rad/s 인 교류전원에 연결하였더니 회로의 최대 전류는 21 mA이다. 교류전원의 최대전압은 몇 V인가?<br>① 2.5<br>② 2.8<br>③ 2.0<br>④ 2.2<br>⑤ 2.6<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 4;
+display_Q0();</script>
+</body>
+</html>
