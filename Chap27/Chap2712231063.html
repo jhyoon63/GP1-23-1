@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework Chap2712231063 이효은</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework Chap2712231063 이효은</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 이효은은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 이효은, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "Chap2712231063.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 어떤 방사성 원소의 방사능이가 초기에 7×10¹¹ Bq 이었고 17.5초가 지난 후에 방사능이  4 ×10¹¹ Bq 이 되었다면, 이 원소의 반감기는 몇 초이겠는가?<br>① 1.7<br>② 31.7<br>③ 91.7<br>④ 81.7<br>⑤ 21.7<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 어떤 원소의 반감기는 3 년이다. 처음에 이 원소의 양이 4×10⁵이었다면, 6년이 경과한 후에 남아있는 방사선 원소의 양은 얼마인가?<br>① 1<br>② 100000.0<br>③ 100<br>④ 100000000<br>⑤ 0.01<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 우라늄의 양성자수는 92개이다. ²³⁸ U이 3 번의 알파붕괴와 1 번의 베타붕괴, 2 번의 감마붕괴를 했을 때 남아있는 양성자의 개수는?<br>① 67.0<br>② 87.0<br>③ 97.0<br>④ 27.0<br>⑤ 47.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 어떤 원소의 알파 붕괴 시 방출되는 알파입자의 운동에너지는 몇 MeV인가? 어미핵의 질량, 딸핵의 질량, 알파입자의 질량은 각각 232.05, 228.02, 4.0015 u이다. 1 u=931.5 MeV/c².<br>① 26.1<br>② 66.1<br>③ 96.1<br>④ 56.1<br>⑤ 46.1<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 어떤 가상의 원자핵이 양성자 56개와 중성자 56개로 이루어져있다고 가정하자. 이 원자핵의 질량이 111.74 u일 때, 이 원자핵에서 핵자 한 개당 결합에너지는 몇 MeV인가? 단, 양성자, 중성자의 질량은 각각 1.007825 u, 1.008665 u이고, 1 u=931.5 MeV/c² 이다.<br>① -98.4<br>② -0.984<br>③ -9840<br>④ -9.84<br>⑤ -0.0984<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 4;
+display_Q0();</script>
+</body>
+</html>
