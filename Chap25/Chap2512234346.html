@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework Chap2512234346 김윤성</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice     {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework Chap2512234346 김윤성</h4></center><ul style="font-size: 14px">
+<li>답이 숫자인 경우, 가장 중요한 3개의 숫자로 반올림한다. For numeric answers, round answer to the 3 most significant digits.</li>
+<li>숫자를 문자열로 제출하는 경우, 양쪽에 따옴표를 붙인다. To submit a numeric string, use quotes to contain the answer.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" style="font-family: malgun;  font-size: 20px">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px">
+나, 김윤성은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, 김윤성, confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: 
+5: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" value="Q-1" /> &emsp;
+<input type="button" onclick="javascript:display_Q1();" value="Q-2" /> &emsp;
+<input type="button" onclick="javascript:display_Q2();" value="Q-3" /> &emsp;
+<input type="button" onclick="javascript:display_Q3();" value="Q-4" /> &emsp;
+<input type="button" onclick="javascript:display_Q4();" value="Q-5" /> &emsp;
+<hr> <div id="Qs" style="word-break:keep-all; padding: 0px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "Chap2512234346.txt"
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font><br> 지면에 대해 정지해 있는 관찰자가 x 축에 대해 25°기울어진 채 x 방향으로 v = 0.97 c의 속도로 움직이고 있는 막대자를 관찰하였다. 이 관찰자가 측정한 자의 길이가 40 cm일 때, 이 자의 정지길이는 몇 cm인가?<br>① 140.0<br>② 190.0<br>③ 110.0<br>④ 150.0<br>⑤ 170.0<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font><br> 속력이 0.9c인 양성자의 상대론적 질량과 동일한 상대론적 질량을 갖는 미지의 입자의 속력은 c의 몇 배인가? 단, 양성자의 질량은 938 MeV/c² 이고, 미지의 입자의 질량은 1232 MeV/c² 이다.<br>① 0.82<br>② 0.082<br>③ 8.2<br>④ 0.00082<br>⑤ 8200<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font><br> 정지상태에서 중간자는 생성 후 2.15 μs만에 소멸된다. 실험실에서 측정한 중간자의 수명은 실험실 시계로 19.66 μs이다. 중간자의 속력은 광속의 몇 배인가?<br>① 0.994<br>② 0.894<br>③ 0.594<br>④ 0.794<br>⑤ 0.694<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font><br> 속력이 0.999c인 전자가 있다. 전자의 상대론적 운동에너지는 몇 MeV인가? 전자의 질량은 0.512 MeV/c² 이다.<br>① 80.9<br>② 10.9<br>③ 90.9<br>④ 50.9<br>⑤ 20.9<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q4() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>5.</strong></font><br> 여러분이 3배로 날씬해 보이고 싶다면 광속의 몇 배로 빨리 달려야 할까?<br>① 943<br>② 0.00943<br>③ 0.943<br>④ 94300<br>⑤ 94.3<br>⑥ None of the above<br>⑦ All of the above';
+
+
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 4;
+display_Q0();</script>
+</body>
+</html>
